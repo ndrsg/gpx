@@ -19,7 +19,8 @@ pub fn consume<R: Read>(context: &mut Context<R>) -> GpxResult<()> {
                 // flip started depending on conditions
                 if &name.local_name == "extensions" {
                     if started {
-                        return Err(GpxError::TagOpenedTwice("extensions"));
+                        // return Err(GpxError::TagOpenedTwice("extensions"));
+                        println!("Found nested extensions tag, yes, this can happen..");
                     }
 
                     started = true;
